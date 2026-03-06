@@ -4,13 +4,14 @@ using UnityEngine.InputSystem;
 public class PersonnageMouvement : MonoBehaviour
 {
     [SerializeField] float speed = 20f;
-
+    [SerializeField] float hauteurJump = 8f;
     Rigidbody rb;
 
     Vector2 move = Vector2.zero;
 
-    string CoinTag = "Coin";
 
+    string CoinTag = "Coin";
+    bool isGrounded;
     //Manque ajouter FX
 
 
@@ -24,6 +25,24 @@ public class PersonnageMouvement : MonoBehaviour
     void FixedUpdate()
     {
         Mouvement();
+    }
+
+
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 
 
@@ -43,7 +62,14 @@ public class PersonnageMouvement : MonoBehaviour
         move = context.ReadValue<Vector2>();
     }
 
-
+    //Lire la touche jump, savoir si on est au sol, sauter
+    public void InputJump(InputAction.CallbackContext context)
+    {
+        if (context.performed && isGrounded)
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, hauteurJump, rb.linearVelocity.z);
+        }
+    }
 
     //mouvement endless
     void Mouvement()
@@ -51,4 +77,5 @@ public class PersonnageMouvement : MonoBehaviour
         rb.linearVelocity = new Vector3(move.x * speed, rb.linearVelocity.y, speed);
 
     }
+
 }

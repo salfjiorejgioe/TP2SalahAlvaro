@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 
 {
+
+    public Transform player;
     public ObjectPool coinPool;
     public ObjectPool mapPool;
     public ObjectPool obstaclePool;
@@ -11,7 +13,9 @@ public class GameManager : MonoBehaviour
     public float prochainePosition = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    {   
+
+
         for (int i =0; i<5; i++)
         {
             SpawnMap();
@@ -23,9 +27,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player.position.z > prochainePosition - distanceDeSpawn)
+        {
+            SpawnMap();
+        }
     }
-
     void SpawnMap()
     {
         GameObject map = mapPool.GetObject();

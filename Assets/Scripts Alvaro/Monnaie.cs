@@ -7,13 +7,9 @@ public class Monnaie : MonoBehaviour
     [SerializeField] private float frequence = 3f;
 
     [SerializeField] GameObject player;
-    public Vector3 startPos = Vector3.zero;
+ 
 
-    private void OnEnable()
-    {
-        //Mettre sur une position de la nouvelle map spawnée
-        startPos = transform.localPosition;
-    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -47,7 +43,7 @@ public class Monnaie : MonoBehaviour
 
             //flotter
             float yOffset = Mathf.Sin(Time.time * frequence) * amplitude;
-            transform.localPosition = startPos + new Vector3(0, yOffset, 0);
+            transform.localPosition = transform.position + new Vector3(0, yOffset, 0);
         }
     }
 }

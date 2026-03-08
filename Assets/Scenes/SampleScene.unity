@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4cea981deb05b408fd45dfdd440c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
-  prefab: {fileID: 0}
+  prefab: {fileID: 978202760558157640, guid: 1e9da1d2305805143a9013a86531f792, type: 3}
   quantite: 10
 --- !u!4 &109765397
 Transform:
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4cea981deb05b408fd45dfdd440c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
-  prefab: {fileID: 0}
+  prefab: {fileID: 8252442519248152243, guid: 3c496176aae59e2418e3ec7201714cc6, type: 3}
   quantite: 10
 --- !u!4 &1298276194
 Transform:
@@ -744,6 +744,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 6671391880464274900}
   - {fileID: 519504383}
-  - {fileID: 2142257097}
   - {fileID: 1298276194}
   - {fileID: 109765397}
+  - {fileID: 2142257097}

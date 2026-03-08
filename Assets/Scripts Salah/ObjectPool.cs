@@ -35,7 +35,7 @@ public class ObjectPool : MonoBehaviour
             if (liste[i].activeSelf == false)
             {
                 liste[i].SetActive(true);   // affiche l'objet
-                return liste[i];          // 
+                return liste[i];          
             }
         }
 

@@ -32,10 +32,21 @@ public class GameManager : MonoBehaviour
             SpawnMap();
         }
     }
-    void SpawnMap()
+ void SpawnMap()
+{
+    GameObject map = mapPool.GetObject();
+
+    map.transform.position = new Vector3(0, 0, prochainePosition);
+
+    RandomSpawner spawner = map.GetComponent<RandomSpawner>();
+
+    if (spawner != null)
     {
-        GameObject map = mapPool.GetObject();
-        map.transform.position = new Vector3(0, 0, prochainePosition);
-        prochainePosition += 30f;
+        spawner.coinPool = coinPool;
+        spawner.obstaclePool = obstaclePool;
+        spawner.SpawnRandomObjects();
     }
+
+    prochainePosition += 30f;
+}
 }

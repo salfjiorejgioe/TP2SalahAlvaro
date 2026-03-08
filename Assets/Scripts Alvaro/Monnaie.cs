@@ -6,12 +6,13 @@ public class Monnaie : MonoBehaviour
     [SerializeField] private float amplitude = 0.2f;
     [SerializeField] private float frequence = 3f;
 
-    [SerializeField] PersonnageMouvement player;
+    [SerializeField] GameObject player;
     public Vector3 startPos = Vector3.zero;
 
     private void OnEnable()
     {
         //Mettre sur une position de la nouvelle map spawnée
+        startPos = transform.localPosition;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,7 +28,7 @@ public class Monnaie : MonoBehaviour
 
     private void Start()
     {
-        startPos = transform.localPosition;
+        
     }
 
     // Update is called once per frame

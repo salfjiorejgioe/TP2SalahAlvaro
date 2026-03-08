@@ -11,16 +11,7 @@ public class Monnaie : MonoBehaviour
 
     
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        //detecter le joueur, augmenter son speed
-        if (collision.gameObject.Equals(player))
-        {
-            collision.gameObject.GetComponent<PersonnageMouvement>().moving = false;
-            collision.gameObject.GetComponent<PersonnageMouvement>().enabled = false;
-            //FX explode
-        }
-    }
+
 
     private void Start()
     {

@@ -14,7 +14,7 @@ public class PersonnageMouvement : MonoBehaviour
     float verticalVelocity = 0f;
 
     string CoinTag = "Coin";
-    bool isGrounded;
+
     //Manque ajouter FX
 
 

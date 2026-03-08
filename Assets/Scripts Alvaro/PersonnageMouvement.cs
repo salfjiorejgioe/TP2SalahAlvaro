@@ -5,10 +5,13 @@ public class PersonnageMouvement : MonoBehaviour
 {
     [SerializeField] float speed = 20f;
     [SerializeField] float hauteurJump = 8f;
-    Rigidbody rb;
+    [SerializeField] float gravite = 20f;
+    CharacterController CC;
 
     Vector2 move = Vector2.zero;
 
+    //verticalVelocity represente la vitesse verticale haut/bas du personnage.
+    float verticalVelocity = 0f;
 
     string CoinTag = "Coin";
     bool isGrounded;
@@ -20,30 +23,14 @@ public class PersonnageMouvement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        CC = GetComponent<CharacterController>();
     }
-    void FixedUpdate()
+    void Update()
     {
         Mouvement();
     }
 
 
-
-    void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
 
 
     //Collision avec un coin
@@ -65,17 +52,23 @@ public class PersonnageMouvement : MonoBehaviour
     //Lire la touche jump, savoir si on est au sol, sauter
     public void InputJump(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded)
-        {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, hauteurJump, rb.linearVelocity.z);
-        }
+        if (CC.isGrounded)
+            verticalVelocity = hauteurJump;
     }
 
     //mouvement endless
     void Mouvement()
     {
-        rb.linearVelocity = new Vector3(move.x * speed, rb.linearVelocity.y, speed);
 
+        Vector3 Direction = new Vector3(move.x * speed, verticalVelocity, speed);
+        CC.Move(Direction * Time.deltaTime);
+
+
+        //Jump
+        if (CC.isGrounded && verticalVelocity < 0)
+            verticalVelocity = -2f; // Keeps isGrounded stable
+        else
+            verticalVelocity -= gravite * Time.deltaTime; 
     }
 
 }

@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee83f8f1c73306347bf21aa916f95454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  player: {fileID: 0}
+  player: {fileID: 1317651543}
   coinPool: {fileID: 1298276193}
   mapPool: {fileID: 2142257096}
   obstaclePool: {fileID: 109765396}
@@ -618,6 +618,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1317651543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1587975490308335646, guid: bfb8e8ece88df164da29e184ac34ed26, type: 3}
+  m_PrefabInstance: {fileID: 800481774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1970463483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3521678732957124758, guid: ead0bd9ffa024be40a099b820ff47648, type: 3}

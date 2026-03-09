@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3245532820722042763}
-  - component: {fileID: 3582446274398434502}
-  - component: {fileID: 1302524242047884595}
+  - component: {fileID: -1897937414393315204}
   m_Layer: 0
   m_Name: Barricade
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,22 +37,8 @@ Transform:
   - {fileID: 383598797846796380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3582446274398434502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978202760558157640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb8281247e50f749b9ddb7982d458d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  player: {fileID: 1060492977531513834, guid: 545813d180be5464f9779e542d5b375b, type: 3}
-  startPos: {x: 0, y: 0, z: 0}
---- !u!64 &1302524242047884595
-MeshCollider:
+--- !u!65 &-1897937414393315204
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -70,10 +55,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 2.3750505, y: 1.6247742, z: 1.9082146}
+  m_Center: {x: -0.46059513, y: 1.2544321, z: -3.3569212}
 --- !u!1 &1795005960600320773
 GameObject:
   m_ObjectHideFlags: 0

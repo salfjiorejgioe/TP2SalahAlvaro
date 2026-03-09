@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5054409190373364546}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Monnaie
   vitesseRotation: 50
-  amplitude: 0.2
+  amplitude: 0.05
   frequence: 3
-  player: {fileID: 1060492977531513834, guid: 545813d180be5464f9779e542d5b375b, type: 3}
-  startPos: {x: 0, y: 0, z: 0}

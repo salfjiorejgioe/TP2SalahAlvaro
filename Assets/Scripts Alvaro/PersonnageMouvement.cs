@@ -13,9 +13,7 @@ public class PersonnageMouvement : MonoBehaviour
     //verticalVelocity represente la vitesse verticale haut/bas du personnage.
     float verticalVelocity = 0f;
 
-    string CoinTag = "Coin";
-
-    //Manque ajouter FX
+    //ajouter FX
 
 
     //pour savoir si notre personnage meurt ou non, je pense que ca nous servira dans la partie spawn de la map
@@ -33,15 +31,21 @@ public class PersonnageMouvement : MonoBehaviour
 
 
 
-    //Collision avec un coin
-    private void OnCollisionEnter(Collision collision)
+    //Collision avec un coin ou barricade avec un CharacterController
+    private void OnControllerColliderHit(ControllerColliderHit collision)
     {
-        if (collision.gameObject.CompareTag(CoinTag))
+        if (collision.gameObject.CompareTag("Coin"))
         {
             speed += 5f;
             collision.gameObject.SetActive(false);
         }
+        else if (collision.gameObject.CompareTag("Barricade"))
+        {
+            gameObject.SetActive(false);
+            //FX explode
+        }
     }
+
 
     //Lire la touche gauche et droite
     public void InputMove(InputAction.CallbackContext context)
@@ -56,17 +60,16 @@ public class PersonnageMouvement : MonoBehaviour
             verticalVelocity = hauteurJump;
     }
 
-    //mouvement endless
+    
     void Mouvement()
     {
-
+        //mouvement endless
         Vector3 Direction = new Vector3(move.x * speed, verticalVelocity, speed);
-        CC.Move(Direction * Time.deltaTime);
-
+        CC.Move(Direction * Time.deltaTime); //Mouvement d'un gameObject avec CharacterController
 
         //Jump
         if (CC.isGrounded && verticalVelocity < 0)
-            verticalVelocity = -2f; // Keeps isGrounded stable
+            verticalVelocity = -2f; // Garder le personnage sur le plancher
         else
             verticalVelocity -= gravite * Time.deltaTime; 
     }

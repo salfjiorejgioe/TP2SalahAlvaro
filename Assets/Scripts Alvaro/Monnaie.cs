@@ -6,18 +6,6 @@ public class Monnaie : MonoBehaviour
     [SerializeField] private float amplitude = 0.2f;
     [SerializeField] private float frequence = 3f;
 
-    [SerializeField] GameObject player;
- 
-
-    
-
-
-
-    private void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

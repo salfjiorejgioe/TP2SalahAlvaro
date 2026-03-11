@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Monnaie : MonoBehaviour
+public class Flottation : MonoBehaviour
 {
     [SerializeField] private float vitesseRotation = 50f;
     [SerializeField] private float amplitude = 0.2f;

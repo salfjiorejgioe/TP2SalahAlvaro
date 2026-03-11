@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98d2660ac80262940811d7341b119961, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.12
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98d2660ac80262940811d7341b119961, type: 3}
       propertyPath: m_LocalPosition.z
@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Coin
       objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 98d2660ac80262940811d7341b119961, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -129,6 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd604bbbafad1746b4187a62e284124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Monnaie
-  vitesseRotation: 20
+  vitesseRotation: 80
   amplitude: 0.005
   frequence: 3

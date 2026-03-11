@@ -30,7 +30,7 @@ public class RandomSpawner : MonoBehaviour
             float x = Random.Range(-largeurRoute, largeurRoute);
             float z = Random.Range(0f, 30f);
 
-            Vector3 position = new Vector3(x, 1f, transform.position.z + z);
+            Vector3 position = new Vector3(x, 0.1f, transform.position.z + z);
 
             if (random < 0.5f)
             {

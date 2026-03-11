@@ -22,6 +22,7 @@ public class PersonnageMouvement : MonoBehaviour
     void Start()
     {
         CC = GetComponent<CharacterController>();
+       
     }
     void Update()
     {

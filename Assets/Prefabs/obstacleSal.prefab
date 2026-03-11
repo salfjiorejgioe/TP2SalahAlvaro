@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5215886845697668842}
   - component: {fileID: 7940519125296907165}
   - component: {fileID: 4598601330567427325}
+  - component: {fileID: -8626629645840318917}
   m_Layer: 0
   m_Name: obstacleSal
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4973440029360066968}
   serializedVersion: 2
   m_LocalRotation: {x: -0.22691588, y: 0.68814486, z: 0.63544923, w: 0.26677728}
-  m_LocalPosition: {x: -9.774131, y: -0.24000025, z: 28.231407}
+  m_LocalPosition: {x: -9.774131, y: 0, z: 28.231407}
   m_LocalScale: {x: 200.00008, y: 200, z: 200.00003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91,3 +92,25 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8626629645840318917
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973440029360066968}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6685903407990717396, guid: 743899c2907f6e64a98cca1ca9109ae4, type: 3}

@@ -9,6 +9,7 @@ TagManager:
   - mapPool
   - obstaclePool
   - Barricade
+  - leFox
   layers:
   - Default
   - TransparentFX

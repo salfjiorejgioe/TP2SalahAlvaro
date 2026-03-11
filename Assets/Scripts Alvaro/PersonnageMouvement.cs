@@ -6,23 +6,23 @@ public class PersonnageMouvement : MonoBehaviour
     [SerializeField] float speed = 20f;
     [SerializeField] float hauteurJump = 8f;
     [SerializeField] float gravite = 20f;
+    [SerializeField] GameObject foxBody;
+    [SerializeField] GameObject explosion;
     CharacterController CC;
-
     Vector2 move = Vector2.zero;
 
     //verticalVelocity represente la vitesse verticale haut/bas du personnage.
     float verticalVelocity = 0f;
 
-    //ajouter FX
-
-
-    //pour savoir si notre personnage meurt ou non, je pense que ca nous servira dans la partie spawn de la map
-    public bool moving = false;
+    //FX
+    AudioSource powerUp;
+    ParticleSystem particles;
 
     void Start()
     {
         CC = GetComponent<CharacterController>();
-       
+        powerUp = GetComponent<AudioSource>();
+        particles = GetComponent<ParticleSystem>();
     }
     void Update()
     {
@@ -37,13 +37,16 @@ public class PersonnageMouvement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            speed += 5f;
+            speed += 2f;
             collision.gameObject.SetActive(false);
+            powerUp.Play();
         }
         else if (collision.gameObject.CompareTag("Barricade"))
         {
-            gameObject.SetActive(false);
+            foxBody.SetActive(false);
+            particles.Stop();
             //FX explode
+            explosion.SetActive(true);
         }
     }
 
@@ -64,15 +67,20 @@ public class PersonnageMouvement : MonoBehaviour
     
     void Mouvement()
     {
-        //mouvement endless
-        Vector3 Direction = new Vector3(move.x * speed, verticalVelocity, speed);
-        CC.Move(Direction * Time.deltaTime); //Mouvement d'un gameObject avec CharacterController
+        //Si le fox est en vie(si son corps est enabled) on peux bouger
+        if (foxBody.activeSelf)
+        {
+            //mouvement endless
+            Vector3 Direction = new Vector3(move.x * speed, verticalVelocity, speed);
+            CC.Move(Direction * Time.deltaTime); //Mouvement d'un gameObject avec CharacterController
 
-        //Jump
-        if (CC.isGrounded && verticalVelocity < 0)
-            verticalVelocity = -2f; // Garder le personnage sur le plancher
-        else
-            verticalVelocity -= gravite * Time.deltaTime; 
+
+            //Jump
+            if (CC.isGrounded && verticalVelocity < 0)
+                verticalVelocity = -2f; // Garder le personnage sur le plancher
+            else
+                verticalVelocity -= gravite * Time.deltaTime;
+        }
     }
 
 }

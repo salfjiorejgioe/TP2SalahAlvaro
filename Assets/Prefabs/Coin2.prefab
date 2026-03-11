@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 98d2660ac80262940811d7341b119961, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83,6 +87,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98d2660ac80262940811d7341b119961, type: 3}
       insertIndex: -1
       addedObject: {fileID: 82444930892551632}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98d2660ac80262940811d7341b119961, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -942640393140487694}
   m_SourcePrefab: {fileID: 100100000, guid: 98d2660ac80262940811d7341b119961, type: 3}
 --- !u!1 &5032519864943599791 stripped
 GameObject:
@@ -110,3 +117,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-942640393140487694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5032519864943599791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd604bbbafad1746b4187a62e284124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Monnaie
+  vitesseRotation: 20
+  amplitude: 0.005
+  frequence: 3

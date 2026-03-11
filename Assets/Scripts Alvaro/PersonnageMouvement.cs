@@ -6,8 +6,8 @@ public class PersonnageMouvement : MonoBehaviour
     [SerializeField] float speed = 20f;
     [SerializeField] float hauteurJump = 8f;
     [SerializeField] float gravite = 20f;
-    [SerializeField] GameObject foxBody;
-    [SerializeField] GameObject explosion;
+    [SerializeField] GameObject foxBody; //Corps visuel du fox
+    [SerializeField] GameObject explosion; //Effet d'explosion activé si l'on meurt
     CharacterController CC;
     Vector2 move = Vector2.zero;
 
@@ -37,15 +37,17 @@ public class PersonnageMouvement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
+            //Augmentation de difficulté, désactive la pomme et joue le son
             speed += 2f;
             collision.gameObject.SetActive(false);
             powerUp.Play();
         }
         else if (collision.gameObject.CompareTag("Barricade"))
         {
+            //Désactive corps visuel et les particules
             foxBody.SetActive(false);
             particles.Stop();
-            //FX explode
+            //Active FX explosion
             explosion.SetActive(true);
         }
     }
@@ -67,20 +69,21 @@ public class PersonnageMouvement : MonoBehaviour
     
     void Mouvement()
     {
-        //Si le fox est en vie(si son corps est enabled) on peux bouger
+        //Si le fox est en vie(si son corps visuel est enabled) on peux bouger
         if (foxBody.activeSelf)
         {
             //mouvement endless
             Vector3 Direction = new Vector3(move.x * speed, verticalVelocity, speed);
-            CC.Move(Direction * Time.deltaTime); //Mouvement d'un gameObject avec CharacterController
+            CC.Move(Direction * Time.deltaTime); //Deplacement par frame avec CharacterController
 
 
             //Jump
             if (CC.isGrounded && verticalVelocity < 0)
-                verticalVelocity = -2f; // Garder le personnage sur le plancher
+                verticalVelocity = -2f; //Garder le personnage sur le plancher avec une force negative
             else
                 verticalVelocity -= gravite * Time.deltaTime;
         }
     }
 
+    //CharacterController source: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/CharacterController.html
 }

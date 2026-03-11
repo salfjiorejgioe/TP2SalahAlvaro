@@ -3,8 +3,8 @@ using UnityEngine;
 public class Flottation : MonoBehaviour
 {
     [SerializeField] private float vitesseRotation = 50f;
-    [SerializeField] private float amplitude = 0.2f;
-    [SerializeField] private float frequence = 3f;
+    [SerializeField] private float amplitude = 0.2f; //Largeur de la flottation haut/bas
+    [SerializeField] private float frequence = 3f; //Vitesse de flottation haut/bas
 
     // Update is called once per frame
     void Update()

@@ -30,24 +30,24 @@ public class ObjectPool : MonoBehaviour
     public GameObject GetObject()
     {
     
-        for (int i = 0; i < liste.Count; i++)
+        for (int i = 0; i < liste.Count; i++) // on parcours la liste
         {
-            if (liste[i].activeSelf == false)
+            if (liste[i].activeSelf == false) // on prend les objets cachés
             {
-                liste[i].SetActive(true);   // affiche l'objet
-                return liste[i];          
+                liste[i].SetActive(true);   // on affiche l'objet
+                return liste[i];          // on le remet à la liste
             }
         }
 
-      
-        GameObject nouveau = Instantiate(prefab);
-        liste.Add(nouveau);
+       // si toute la liste est vide on crée des nouveaux
+        GameObject nouveau = Instantiate(prefab); 
+        liste.Add(nouveau); 
         return nouveau;
     }
 
     public void ReturnObject(GameObject obj)
     {
-       
-        obj.SetActive(false);
+        // on désactive l'objet poour qu'il puisse etre reutilisé 
+        obj.SetActive(false); 
     }
 }
